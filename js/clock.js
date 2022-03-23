@@ -11,7 +11,7 @@ let days = [
     "Cuma",
     "Cumartesi",
   ];
-let d,h,m,s,clock,day;
+/*let d,h,m,s,clock,day;
 setInterval(()=>{
 	d = new Date();
 	h = d.getHours();
@@ -20,8 +20,18 @@ setInterval(()=>{
 	day = d.getDay();
 	
 	myClock.innerHTML = `${addZero(h)}:${m}:${s}-${days[day]}`;
-	},1000);
-	
+	},1000);*/
+function showTime(){
+	let d,h,m,s,clock,day;
+	d = new Date();
+	h = d.getHours();
+	m = d.getMinutes();
+	s = d.getSeconds();
+	day = d.getDay();
+	myClock.innerHTML = `${addZero(h)}:${addZero(m)}:${s}-${days[day]}`;
+	setTimeout(showTime,1000);
+}
+showTime();
 function addZero(n) {
   return n < 10 ? (n = "0" + n) : n;
 }
